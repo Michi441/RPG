@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour {
 
 		GetInput ();
 		Move ();
+
 		
 	}
 
@@ -40,7 +41,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Move(){
 
-		if (velocity == 0) {
+		if (velocity == 0 && !Input.GetMouseButtonDown (0)) {
 			anim.SetInteger ("Condition", 0);
 			return;
 		} else {
@@ -59,9 +60,19 @@ public class PlayerMovement : MonoBehaviour {
 		velocity = dir;
 	}
 
+	void Attack(){
+
+		anim.SetInteger ("Condition", 2);
+		return;
+	}
+
 	void GetInput(){
 
+		if (Input.GetMouseButtonDown (0)) {
 
+			Debug.Log ("attacking!");
+			Attack ();
+		}
 		if (Input.GetKey (KeyCode.A)) {
 
 			SetVelocity (-1);
