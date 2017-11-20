@@ -354,11 +354,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 6783a94fbec42ea42817f01231ee7565, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.4693387
+      value: 1.47
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6783a94fbec42ea42817f01231ee7565, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.7523327
+      value: 3.3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6783a94fbec42ea42817f01231ee7565, type: 3}
       propertyPath: m_LocalPosition.z
@@ -666,9 +666,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 829879226}
+  noHealth: 0
   totlaHealth: 100
   currentHealth: 0
-  expGranded: 0
+  expGranded: 30
   attackDamage: 0
   attackSpeed: 0
   moveSpeed: 0
@@ -732,9 +733,10 @@ MonoBehaviour:
   movementSpeed: 5
   velocity: 0
   enemiesInRange: []
-  AttackDamage: 5
+  AttackDamage: 150
   AttackSpeed: 0
   AttackRange: 0
+  experience: 0
 --- !u!1001 &1063734910
 Prefab:
   m_ObjectHideFlags: 0
@@ -1106,7 +1108,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1927193529}
   m_LocalRotation: {x: 0.15630858, y: -0, z: -0, w: 0.98770833}
-  m_LocalPosition: {x: -2.05, y: 5.01, z: -16.430002}
+  m_LocalPosition: {x: -2.05, y: 3.27, z: -16.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

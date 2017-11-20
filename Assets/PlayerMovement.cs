@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour {
 	public List<Transform> enemiesInRange = new List<Transform>();
 	private bool canAttack = true;
 	private bool isAttacking;
-	public float AttackDamage, AttackSpeed, AttackRange;
+	public float AttackDamage, AttackSpeed, AttackRange, experience;
 
 	// Use this for initialization
 	void Start () {
@@ -133,6 +133,11 @@ public class PlayerMovement : MonoBehaviour {
 			}
 	}
 
+	}
+
+	public void GetXP(float XP){
+
+		experience += XP;
 	}
 
 }
