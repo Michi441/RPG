@@ -51,10 +51,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Chibi Mummy\Misc\Scripts\buttonControl_script.cs" />
+     <Compile Include="Assets\Chibi Mummy\Misc\Scripts\CharMovement.cs" />
+     <Compile Include="Assets\EnemyMovement.cs" />
      <Compile Include="Assets\FollowTarget.cs" />
      <Compile Include="Assets\PlayerMovement.cs" />
      <None Include="Assets\Environment\Cartoon lowpoly water well\readme.txt" />
      <None Include="Assets\Environment\Baker House\Readme.txt" />
+     <None Include="Assets\Chibi Mummy\readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

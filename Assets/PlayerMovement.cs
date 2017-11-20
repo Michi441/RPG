@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
+	[Header("Movement")]
 	public float movementSpeed, velocity;
 	Rigidbody rb;
 	Animator anim;
+
+	private bool isAttacking;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +25,13 @@ public class PlayerMovement : MonoBehaviour {
 		Move ();
 
 		
+	}
+
+	IEnumerator Attacking(){
+
+		isAttacking = true;
+		yield return new WaitForSeconds (1);
+		isAttacking = false;
 	}
 
 
@@ -41,14 +51,17 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Move(){
 
-		if (velocity == 0 && !Input.GetMouseButtonDown (0)) {
-			anim.SetInteger ("Condition", 0);
+		if (velocity == 0) {
+		//anim.SetInteger ("Condition", 0);
 			return;
 		} else {
-			anim.SetInteger ("Condition", 1);
+			if (!isAttacking) {
+				anim.SetInteger ("Condition", 1);
+				rb.MovePosition (transform.position + Vector3.right * velocity * movementSpeed * Time.deltaTime);
+			}
 		}
 
-		rb.MovePosition(transform.position + Vector3.right * velocity * movementSpeed * Time.deltaTime);
+
 	}
 
 	void SetVelocity(float dir){
@@ -62,8 +75,11 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Attack(){
 
+		if (isAttacking)
+			return;
+		StartCoroutine (Attacking());
 		anim.SetInteger ("Condition", 2);
-		return;
+
 	}
 
 	void GetInput(){
@@ -78,7 +94,7 @@ public class PlayerMovement : MonoBehaviour {
 			SetVelocity (-1);
 
 		} else if (Input.GetKeyUp (KeyCode.A)) {
-
+			anim.SetInteger ("Condition", 0);
 			SetVelocity (0);
 		}
 
@@ -87,6 +103,7 @@ public class PlayerMovement : MonoBehaviour {
 			SetVelocity (1);
 
 		} else if (Input.GetKeyUp (KeyCode.D)) {
+			anim.SetInteger ("Condition", 0);
 
 			SetVelocity (0);
 
