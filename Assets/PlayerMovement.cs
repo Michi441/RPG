@@ -1,8 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour {
+
+	private int level = 1;
+	private Text levelText;
+	public float experience { get; private set;}
+	private Transform exprienceBar;
 
 	[Header("Movement")]
 	public bool canMove;
@@ -14,13 +20,16 @@ public class PlayerMovement : MonoBehaviour {
 	public List<Transform> enemiesInRange = new List<Transform>();
 	private bool canAttack = true;
 	private bool isAttacking;
-	public float AttackDamage, AttackSpeed, AttackRange, experience;
+	public float AttackDamage, AttackSpeed, AttackRange;
 
 	// Use this for initialization
 	void Start () {
 
 		anim = GetComponent<Animator> ();
 		rb = GetComponent<Rigidbody> ();
+
+		exprienceBar = UIController.instance.transform.Find ("XPFiller");
+		levelText = UIController.instance.transform.Find ("XPText").GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
@@ -138,6 +147,21 @@ public class PlayerMovement : MonoBehaviour {
 	public void GetXP(float XP){
 
 		experience += XP;
+		float XPNeeded = AddXP.ExperienceForNextLevel (level);
+		float previousXP = AddXP.ExperienceForNextLevel (level - 1);
+
+		if (experience >= XPNeeded) {
+
+			LevelUP ();
+			XPNeeded = AddXP.ExperienceForNextLevel (level);
+			previousXP = AddXP.ExperienceForNextLevel (level - 1);
+		}
+		exprienceBar.GetComponent<Image> ().fillAmount = (experience - previousXP) / (XPNeeded - previousXP);
 	}
 
+	void LevelUP(){
+
+		level++;
+		levelText.text = "Lv " + level.ToString ("00");
+	}
 }
