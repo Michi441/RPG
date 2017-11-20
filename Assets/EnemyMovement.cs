@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
 
-	Animator anim;
+	public Animator anim;
 
 	public float totlaHealth, currentHealth, expGranded,attackDamage,attackSpeed, moveSpeed;
 
@@ -12,7 +12,7 @@ public class EnemyMovement : MonoBehaviour {
 	void Start () {
 
 
-		
+		//anim.SetInteger ("Condition", 0);
 	}
 	
 	// Update is called once per frame
@@ -20,7 +20,7 @@ public class EnemyMovement : MonoBehaviour {
 
 		if (Input.GetMouseButtonDown (0)) {
 
-
+			Debug.Log ("hit enemy");
 			GetHit ();
 		}
 		
@@ -36,7 +36,7 @@ public class EnemyMovement : MonoBehaviour {
 	IEnumerator RecoverFromHit(){
 
 
-		yield return new WaitForSeconds (0.1f);
+		yield return new WaitForSeconds (0.5f);
 		anim.SetInteger ("Condition", 0);
 	}
 }

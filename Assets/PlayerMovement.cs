@@ -5,11 +5,15 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
 	[Header("Movement")]
+	public bool canMove;
 	public float movementSpeed, velocity;
 	Rigidbody rb;
 	Animator anim;
 
+	[Header("Combat")]
+	private bool canAttack = true;
 	private bool isAttacking;
+	public float AttackDamage, AttackSpeed, AttackRange;
 
 	// Use this for initialization
 	void Start () {
