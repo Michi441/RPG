@@ -338,6 +338,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 8045f05a54a174ccea6aee726224fde0, type: 2}
+    - target: {fileID: 100068, guid: 4ee39bc25eeaa144891bd0eadcc1bc51, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ee39bc25eeaa144891bd0eadcc1bc51, type: 3}
   m_IsPrefabParent: 0
@@ -662,12 +666,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 829879226}
-  totlaHealth: 0
+  totlaHealth: 100
   currentHealth: 0
   expGranded: 0
   attackDamage: 0
   attackSpeed: 0
   moveSpeed: 0
+--- !u!136 &829879229
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 829879225}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.42, z: 0}
 --- !u!1 &894444394 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100050, guid: ba24e610e0a338545b447ff44a3cf1cc, type: 3}
@@ -696,7 +713,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -711,8 +728,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a33f313e0b04f48bf7351652e94ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canMove: 0
   movementSpeed: 5
   velocity: 0
+  enemiesInRange: []
+  AttackDamage: 5
+  AttackSpeed: 0
+  AttackRange: 0
 --- !u!1001 &1063734910
 Prefab:
   m_ObjectHideFlags: 0

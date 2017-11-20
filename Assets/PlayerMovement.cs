@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour {
 	Animator anim;
 
 	[Header("Combat")]
+	public List<Transform> enemiesInRange = new List<Transform>();
 	private bool canAttack = true;
 	private bool isAttacking;
 	public float AttackDamage, AttackSpeed, AttackRange;
@@ -32,7 +33,16 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	IEnumerator Attacking(){
+		GetEnemiesInRange ();
+		foreach (Transform enemy in enemiesInRange) {
 
+			EnemyMovement em = enemy.GetComponent<EnemyMovement> ();
+			if (em == null) {
+
+				continue;
+			}
+			em.GetHit (AttackDamage);
+		}
 		isAttacking = true;
 		yield return new WaitForSeconds (1);
 		isAttacking = false;
@@ -84,6 +94,7 @@ public class PlayerMovement : MonoBehaviour {
 		StartCoroutine (Attacking());
 		anim.SetInteger ("Condition", 2);
 
+
 	}
 
 	void GetInput(){
@@ -113,4 +124,15 @@ public class PlayerMovement : MonoBehaviour {
 
 		}
 	}
+
+	void GetEnemiesInRange(){
+		enemiesInRange.Clear ();
+		foreach (Collider c in Physics.OverlapSphere((transform.position + transform.forward * 0.5f), 0.5f)){
+			if (c.gameObject.CompareTag ("Enemy")) {
+				enemiesInRange.Add (c.transform);
+			}
+	}
+
+	}
+
 }
