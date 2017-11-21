@@ -55,6 +55,8 @@
      <Compile Include="Assets\Enemies\AShopExport\UIObjRotation.cs" />
      <Compile Include="Assets\Enemies\Chibi Mummy\Misc\Scripts\buttonControl_script.cs" />
      <Compile Include="Assets\Enemies\Chibi Mummy\Misc\Scripts\CharMovement.cs" />
+     <Compile Include="Assets\ItemDatabase.cs" />
+     <Compile Include="Assets\NPCDataBase.cs" />
      <Compile Include="Assets\Scripts\AddXP.cs" />
      <Compile Include="Assets\Scripts\AnimationController.cs" />
      <Compile Include="Assets\Scripts\DialogueBo.cs" />
