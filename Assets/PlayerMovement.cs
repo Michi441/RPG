@@ -110,6 +110,21 @@ public class PlayerMovement : MonoBehaviour {
 
 		if (Input.GetMouseButtonDown (0)) {
 
+			RaycastHit hit;
+			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+			if (Physics.Raycast (ray, out hit, 300)) {
+
+					
+				if (hit.transform.GetComponent<NPCController> ()) {
+
+					hit.transform.GetComponent<NPCController> ().ShowDialogue();
+					hit.transform.GetComponent<NPCController> ().dialoguesIndex++;
+
+					return;
+
+				}
+			}
+
 			Debug.Log ("attacking!");
 			Attack ();
 		}
@@ -150,7 +165,7 @@ public class PlayerMovement : MonoBehaviour {
 		float XPNeeded = AddXP.ExperienceForNextLevel (level);
 		float previousXP = AddXP.ExperienceForNextLevel (level - 1);
 
-		if (experience >= XPNeeded) {
+		while(experience >= XPNeeded) {
 
 			LevelUP ();
 			XPNeeded = AddXP.ExperienceForNextLevel (level);

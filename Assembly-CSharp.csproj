@@ -53,10 +53,13 @@
   <ItemGroup>
      <Compile Include="Assets\AddXP.cs" />
      <Compile Include="Assets\AnimationController.cs" />
+     <Compile Include="Assets\AShopExport\ShowAnimation.cs" />
+     <Compile Include="Assets\AShopExport\UIObjRotation.cs" />
      <Compile Include="Assets\Chibi Mummy\Misc\Scripts\buttonControl_script.cs" />
      <Compile Include="Assets\Chibi Mummy\Misc\Scripts\CharMovement.cs" />
      <Compile Include="Assets\EnemyMovement.cs" />
      <Compile Include="Assets\FollowTarget.cs" />
+     <Compile Include="Assets\NPCController.cs" />
      <Compile Include="Assets\PlayerMovement.cs" />
      <Compile Include="Assets\UIController.cs" />
      <None Include="Assets\Environment\Cartoon lowpoly water well\readme.txt" />
