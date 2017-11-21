@@ -51,20 +51,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AddXP.cs" />
-     <Compile Include="Assets\AnimationController.cs" />
-     <Compile Include="Assets\AShopExport\ShowAnimation.cs" />
-     <Compile Include="Assets\AShopExport\UIObjRotation.cs" />
-     <Compile Include="Assets\Chibi Mummy\Misc\Scripts\buttonControl_script.cs" />
-     <Compile Include="Assets\Chibi Mummy\Misc\Scripts\CharMovement.cs" />
-     <Compile Include="Assets\EnemyMovement.cs" />
-     <Compile Include="Assets\FollowTarget.cs" />
-     <Compile Include="Assets\NPCController.cs" />
-     <Compile Include="Assets\PlayerMovement.cs" />
-     <Compile Include="Assets\UIController.cs" />
+     <Compile Include="Assets\Enemies\AShopExport\ShowAnimation.cs" />
+     <Compile Include="Assets\Enemies\AShopExport\UIObjRotation.cs" />
+     <Compile Include="Assets\Enemies\Chibi Mummy\Misc\Scripts\buttonControl_script.cs" />
+     <Compile Include="Assets\Enemies\Chibi Mummy\Misc\Scripts\CharMovement.cs" />
+     <Compile Include="Assets\Scripts\AddXP.cs" />
+     <Compile Include="Assets\Scripts\AnimationController.cs" />
+     <Compile Include="Assets\Scripts\DialogueBo.cs" />
+     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
+     <Compile Include="Assets\Scripts\FollowTarget.cs" />
+     <Compile Include="Assets\Scripts\InputManager.cs" />
+     <Compile Include="Assets\Scripts\NPCController.cs" />
+     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\UIController.cs" />
      <None Include="Assets\Environment\Cartoon lowpoly water well\readme.txt" />
      <None Include="Assets\Environment\Baker House\Readme.txt" />
-     <None Include="Assets\Chibi Mummy\readme.txt" />
+     <None Include="Assets\Enemies\Chibi Mummy\readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
