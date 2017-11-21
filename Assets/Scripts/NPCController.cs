@@ -12,19 +12,27 @@ public class NPCController : MonoBehaviour {
 		
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 
 	public void ShowDialogue(){
 
 		if (dialoguesIndex > (dialogues.Length - 1)) {
+			
 			DialogueBo.instance.CloseDialogueBox ();
+
 			dialoguesIndex = (dialogues.Length - 1);
+			dialoguesIndex = -1;
+		} else {
+			
+			//print (name + ": " + dialogues [dialoguesIndex]);
+			DialogueBo.instance.PrintDialogueBox (name + ": " + dialogues [dialoguesIndex]);
 
 		}
-			print (name + ": " + dialogues [dialoguesIndex]);
-		DialogueBo.instance.PrintDialogueBox (name + ": " + dialogues [dialoguesIndex]);
+	}
+
+	IEnumerator Wait(){
+
+		yield return new WaitForSeconds (5f);
+
 	}
 }

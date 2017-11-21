@@ -8,11 +8,12 @@ public class UIController : MonoBehaviour {
 	public Transform canvas;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 
-		if (!instance)
+		if (!instance) {
 			instance = this;
-		
+			canvas = GameObject.Find ("Canvas").transform;
+		}
 	}
 	
 	// Update is called once per frame
