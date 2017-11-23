@@ -59,6 +59,7 @@
      <Compile Include="Assets\MonsterDatabase.cs" />
      <Compile Include="Assets\NPCDataBase.cs" />
      <Compile Include="Assets\Quest.cs" />
+     <Compile Include="Assets\QuestManager.cs" />
      <Compile Include="Assets\Scripts\AddXP.cs" />
      <Compile Include="Assets\Scripts\AnimationController.cs" />
      <Compile Include="Assets\Scripts\DialogueBo.cs" />
@@ -70,6 +71,7 @@
      <Compile Include="Assets\Scripts\UIController.cs" />
      <None Include="Assets\Environment\Cartoon lowpoly water well\readme.txt" />
      <None Include="Assets\Environment\Baker House\Readme.txt" />
+     <None Include="Assets\Resources\JSONQuestFile.txt" />
      <None Include="Assets\Enemies\Chibi Mummy\readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

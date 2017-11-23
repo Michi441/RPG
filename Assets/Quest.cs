@@ -12,27 +12,27 @@ public class Quest {
 	public Reward reward;
 	public Task task;
 
-	[SerializeField]
+	[System.Serializable]
 	public class Reward {
 
 		public float exp;
 		public float money;
 		public QuestItem[] items;
 	}
-	[SerializeField]
+	[System.Serializable]
 	public class Task {
 
 		public int[] talkTo;
 		public QuestItem[] items;
 		public QuestKill[] kills;
 	}
-	[SerializeField]
+	[System.Serializable]
 	public class QuestItem{
 
 		public int id;
 		public int amount;
 	}
-	[SerializeField]
+	[System.Serializable]
 	public class QuestKill{
 
 		public int id;

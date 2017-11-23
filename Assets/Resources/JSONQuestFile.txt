@@ -1,0 +1,24 @@
+﻿{
+	"id":0,
+	"QuestName":"Mummies everywhere!",
+	"QuestDescription":"Get em all!",
+	"reci":0,
+	"reqLevel":0,
+	"reward":
+	{
+		"exp":400.0,
+		"money": 0.0, 
+		"items":[{"id":2, "amoun":1}]
+	},
+	"task":
+	{
+		"talkTo":[],
+		"items":[],
+		"kills":[{"id":0,"amount":10, "playerCurrent":0}, {"id": 55, "amount":3, "playerCurrent":0}]
+
+
+
+
+	}
+
+}
