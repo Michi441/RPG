@@ -114,11 +114,12 @@ public class PlayerMovement : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			if (Physics.Raycast (ray, out hit, 300)) {
 
-					
-				if (hit.transform.GetComponent<NPCController> ()) {
+				NPCController npcController = hit.transform.GetComponent<NPCController> ();
+				if (npcController != null) {
 
-					hit.transform.GetComponent<NPCController> ().ShowDialogue();
-					hit.transform.GetComponent<NPCController> ().dialoguesIndex++;
+					npcController.ShowDialogue();
+					npcController.dialoguesIndex++;
+					npcController.OnClick ();
 
 					return;
 

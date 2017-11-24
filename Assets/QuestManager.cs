@@ -16,11 +16,18 @@ public class QuestManager : MonoBehaviour {
 		}
 	}
 
-	void LoadQuest(){
+	public void LoadQuest(){
 
 
 		Quest newQuest = JsonUtility.FromJson<Quest> (Resources.Load<TextAsset> ("JSONQuestFile").text);
 		questDictionary.Add (newQuest.id, newQuest);
+
+
+	}
+
+	public void ShowQuestInfo(Quest quest){
+
+
 
 
 	}

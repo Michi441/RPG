@@ -11,6 +11,8 @@ public class NPCController : MonoBehaviour {
 	private Quest.Task task;
 	private Quest quest;
 
+	[SerializeField] int[] quests;
+
 	// Use this for initialization
 	void Start () {
 
@@ -20,6 +22,11 @@ public class NPCController : MonoBehaviour {
 //		print(JsonUtility.ToJson (quest));
 //		print (JsonUtility.ToJson (quest.QuestName));
 		UIController.instance.ShowQuestInfo (QuestManager.instance.questDictionary [0]);
+
+		foreach (int i in quests) {
+
+			QuestManager.instance.LoadQuest (i);
+		}
 
 
 	}
@@ -50,6 +57,26 @@ public class NPCController : MonoBehaviour {
 		quest.task.kills [1].id = 55;
 		quest.task.kills [1].amount = 5;
 
+	}
+
+	public void ShowQuestInfo(){
+
+
+		foreach (int i in quests) {
+
+			if(!PlayerData.finishedQuests.Contains(i) &&
+				QuestManager.instance.IsQuestAvailable(i, GameObject.Find("Player").GetComponent<PlayerMovement>())){
+
+
+					QuestManager.instance.ShowQuestInfo(QuestManager.instance.questDictionary[quests[i]]);
+					break;
+				}
+		}
+	}
+
+	public void OnClick(){
+
+		ShowQuestInfo ();
 	}
 
 

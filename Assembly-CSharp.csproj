@@ -67,6 +67,7 @@
      <Compile Include="Assets\Scripts\FollowTarget.cs" />
      <Compile Include="Assets\Scripts\InputManager.cs" />
      <Compile Include="Assets\Scripts\NPCController.cs" />
+     <Compile Include="Assets\Scripts\PlayerData.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\UIController.cs" />
      <None Include="Assets\Environment\Cartoon lowpoly water well\readme.txt" />
