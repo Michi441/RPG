@@ -19,9 +19,12 @@ public class UIController : MonoBehaviour {
 	public Transform questBookContent;
 	public Button questBookCancelButton;
 
+
 	// Use this for initialization
 	void Awake () {
 
+
+	
 		if (!instance) {
 			instance = this;
 			canvas = GameObject.Find ("UI").transform;
@@ -33,7 +36,7 @@ public class UIController : MonoBehaviour {
 		questInfo = canvas.Find ("AllQuestsInfo");
 		questInfoContent = questInfo.Find ("Info/Viewport/Content");
 		questInfoAcceptButton = questInfo.Find ("Info/Buttons/AcceptButton").GetComponent<Button> ();
-		questInfoCancelButton = questInfo.Find ("Info/Buttons/CancelButton").GetComponent<Button>();
+		questInfoCancelButton = questInfo.Find ("Info/Buttons/CancelButton").GetComponent<Button> ();
 
 		questInfoCancelButton.onClick.AddListener (() => {
 			questInfo.gameObject.SetActive (false);
@@ -42,9 +45,23 @@ public class UIController : MonoBehaviour {
 
 
 		questBook = canvas.Find ("AllQuestActive");
-		questBookContent = canvas.Find ("/Info/Viewport/Content");
+		questBookContent = questBook.Find ("Info/Viewport/Content");
+		questBookCancelButton = questBook.Find ("Info/Buttons/CancelButton").GetComponent<Button> ();
+
+		questBookCancelButton.onClick.AddListener (() => {
+
+
+			questBook.gameObject.SetActive (false);
+
+		});
 
 	}
+
+
+
+	
+
+
 
 
 
@@ -55,6 +72,13 @@ public class UIController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (Input.GetKey(KeyCode.Q)) {
+
+
+			questBook.gameObject.SetActive (true);
+		}
+		
 		
 	}
 }

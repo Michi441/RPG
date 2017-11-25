@@ -32,7 +32,19 @@ public class QuestManager : MonoBehaviour {
 
 		foreach (int i in PlayerData.activeQuests) {
 
+			Debug.Log ("function called");
 
+			GameObject QuestButtonGo = Instantiate (Resources.Load ("QuestTextButton")) as GameObject;
+			QuestButtonGo.name = questDictionary [i].id.ToString ();
+			QuestButtonGo.transform.SetParent (UIController.instance.questBookContent);
+			QuestButtonGo.transform.localScale = Vector3.one;
+			QuestButtonGo.transform.Find ("Text").GetComponent<Text> ().text = questDictionary [i].QuestName;
+			int questId = new int ();
+			questId = i;
+			QuestButtonGo.GetComponent<Button> ().onClick.AddListener (() => {
+
+				ShowQuestInfo (questDictionary [questId]);
+			});
 
 		}
 	}
@@ -46,7 +58,7 @@ public class QuestManager : MonoBehaviour {
 			PlayerData.AddQuest (quest.id);
 			UIController.instance.questInfo.gameObject.SetActive (false);
 			print(PlayerData.activeQuests);
-			//ShowActiveQuests();
+			ShowActiveQuests();
 		});
 
 
