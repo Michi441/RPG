@@ -8,87 +8,41 @@ public class UIController : MonoBehaviour {
 	public static UIController instance;
 	public Transform canvas;
 
+	public Transform questInfo;
+	public Transform questInfoContent;
+	public Button questInfoAcceptButton;
+	public Button questInfoCancelButton;
+	public Button questInfoCompleteButton;
+
+	// Quest Book Grid
+	public Transform questBook;
+	public Transform questBookContent;
+	public Button questBookCancelButton;
+
 	// Use this for initialization
 	void Awake () {
 
 		if (!instance) {
 			instance = this;
-			canvas = GameObject.Find ("Canvas").transform;
+			canvas = GameObject.Find ("UI").transform;
 		}
+
+
+		// Find the Quest Info UI Data
+
+		questInfo = canvas.Find ("AllQuestsInfo");
+		questInfoContent = questInfo.Find ("/Info/Viewport/Content");
+		questInfoAcceptButton = questInfo.Find ("Info/Buttons/AcceptButton").GetComponent<Button> ();
+		questInfoCancelButton = questInfo.Find ("/Info/Buttons/CancelButton").GetComponent<Button>();
+
+		questInfoCancelButton.onClick.AddListener (() => {
+			questInfo.gameObject.SetActive (false);
+		});
 	}
 
 
 
-	public void ShowQuestInfo(Quest quest){
 
-
-		Transform info = GameObject.Find ("QuestInfo").transform;
-		info.Find ("QuestName").GetComponent<Text> ().text = quest.QuestName;
-		info.Find ("QuestDescription").GetComponent<Text> ().text = quest.QuestDescription;
-
-		// Task
-
-		string TaskString = "Task:\n";
-		if (quest.task.kills != null) {
-
-
-			foreach (Quest.QuestKill qk in quest.task.kills) {
-
-				TaskString += "Slay " + qk.amount + " " + MonsterDatabase.Monsters [qk.id] + ".\n";
-			}
-		} else {
-
-			Debug.Log (quest.task.kills);
-		}
-
-		if (quest.task.items != null) {
-
-
-			foreach (Quest.QuestItem qi in quest.task.items) {
-
-
-				TaskString += "Bring " + qi.amount + " " + ItemDatabase.items [qi.id] + ".\n";
-			}
-		}
-
-		if (quest.task.talkTo != null) {
-
-			foreach (int id in quest.task.talkTo) {
-
-
-				TaskString += "talk to " + NPCDataBase.npcs [id] + ".\n";
-
-			}
-		}
-
-		info.Find ("Task").GetComponent<Text> ().text = TaskString;
-
-		string rewardString = "Reward: \n";
-		if (quest.reward.items != null) {
-
-
-			foreach (Quest.QuestItem qi in quest.reward.items) {
-
-
-				rewardString += qi.amount + " " + ItemDatabase.items[qi.id] + ".\n";
-
-			}
-		}
-
-		if (quest.reward.exp != null) {
-
-			rewardString += quest.reward.exp + "Experience ";
-
-		}
-
-		if (quest.reward.money > 0) {
-
-			rewardString += quest.reward.money + "money";
-
-		}
-
-		info.Find ("Reward").GetComponent<Text> ().text = rewardString;
-	}
 
 
 
