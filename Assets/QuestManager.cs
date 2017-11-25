@@ -19,39 +19,49 @@ public class QuestManager : MonoBehaviour {
 
 	public void LoadQuest(){
 
-
+		// Create a new Quest Item by using the JSON File as source.
 		Quest newQuest = JsonUtility.FromJson<Quest> (Resources.Load<TextAsset> ("JSONQuestFile").text);
+		// Add the quest to the Dictionary File. New quest has an id for the index and newQuest is the name.
 		questDictionary.Add (newQuest.id, newQuest);
+		print(JsonUtility.ToJson(newQuest));
 
 
 	}
 
-	public void ShowQuestInfo(Quest quest){
-
+	public void ShowQuestInfo (Quest quest)
+	{
+		// Get the UI Controller script and the associated gameObject with questinfo and set it active.
 		UIController.instance.questInfo.gameObject.SetActive (true);
 
-		UIController.instance.questInfoAcceptButton.onClick.AddListener(() => {
-			PlayerData.AddQuest(quest.id);
-			UIController.instance.questInfo.gameObject.SetActive(false);
-			ShowActiveQuests();
+		UIController.instance.questInfoAcceptButton.onClick.AddListener (() => {
+			PlayerData.AddQuest (quest.id);
+			UIController.instance.questInfo.gameObject.SetActive (false);
+			//ShowActiveQuests();
 		});
 
 
 
-		UIController.instance.questInfoContent.Find("Name").GetComponent<Text>().text = quest.QuestName;
-		UIController.instance.questInfoContent.Find("Description").GetComponent<Text>().text = quest.QuestDescription;
+
+
+		UIController.instance.questInfoContent.Find ("Name").GetComponent<Text> ().text = quest.QuestName;
+		UIController.instance.questInfoContent.Find ("Description").GetComponent<Text> ().text = quest.QuestDescription;
 		//TASK
 		string taskString = "Task:\n";
-		if(quest.task.kills != null){
-			foreach(Quest.QuestKill qk in quest.task.kills){
-				//Current kills is zero when we haven't taken the quest.
+		if (quest.task.kills != null) {
+			foreach (Quest.QuestKill qk in quest.task.kills) {
+
 				int currentKills = 0;
-				if(PlayerData.monstersKilled.ContainsKey(qk.id))
-					//if we are showing the info during the progress of the quest (we took it already) show the progress.
-					currentKills = PlayerData.monstersKilled[qk.id].amount - PlayerData.activeQuests[quest.id].kills[qk.id].initialAmount;
-				taskString += "Slay " + (currentKills) + "/" + qk.amount + " " + MonsterDatabase.monsters[qk.id] + ".\n";
+				taskString += "Slay " + qk.amount + " " + MonsterDatabase.Monsters [qk.id] + ".\n";
+
+
+				Debug.Log ("has tasks!");
+
+
 			}
 		}
+
+	
+	
 		if(quest.task.items != null){
 			foreach(Quest.QuestItem qi in quest.task.items){
 				taskString += "Bring " + qi.amount + " " + ItemDatabase.items[qi.id] + ".\n";

@@ -19,14 +19,12 @@ public class NPCController : MonoBehaviour {
 		//SetQuestExample ();
 		//ShowQuestInfo ();
 
+		//print (JsonUtility.ToJson (quest));
 //		print(JsonUtility.ToJson (quest));
 //		print (JsonUtility.ToJson (quest.QuestName));
-		UIController.instance.ShowQuestInfo (QuestManager.instance.questDictionary [0]);
+		//UIController.instance.ShowQuestInfo (QuestManager.instance.questDictionary [0]);
 
-		foreach (int i in quests) {
 
-			QuestManager.instance.LoadQuest (i);
-		}
 
 
 	}
@@ -64,13 +62,11 @@ public class NPCController : MonoBehaviour {
 
 		foreach (int i in quests) {
 
-			if(!PlayerData.finishedQuests.Contains(i) &&
-				QuestManager.instance.IsQuestAvailable(i, GameObject.Find("Player").GetComponent<PlayerMovement>())){
 
 
 					QuestManager.instance.ShowQuestInfo(QuestManager.instance.questDictionary[quests[i]]);
 					break;
-				}
+				
 		}
 	}
 

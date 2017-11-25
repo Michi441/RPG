@@ -437,7 +437,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: 10
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -593,6 +593,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+  questInfo: {fileID: 0}
+  questInfoContent: {fileID: 0}
+  questInfoAcceptButton: {fileID: 0}
+  questInfoCancelButton: {fileID: 0}
+  questInfoCompleteButton: {fileID: 0}
+  questBook: {fileID: 0}
+  questBookContent: {fileID: 0}
+  questBookCancelButton: {fileID: 0}
 --- !u!1001 &190767284
 Prefab:
   m_ObjectHideFlags: 0
@@ -1480,7 +1488,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1894310110}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.6536197
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1720,11 +1728,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c3e1de189ab44f9b7f9f523943ede5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 462668303}
+  anim: {fileID: 0}
   noHealth: 0
-  totlaHealth: 100
+  totlaHealth: 0
   currentHealth: 0
-  expGranded: 2
+  expGranded: 0
   attackDamage: 0
   attackSpeed: 0
   moveSpeed: 0
@@ -1741,11 +1749,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.42, z: 0}
---- !u!95 &462668303 stripped
-Animator:
-  m_PrefabParentObject: {fileID: 9500000, guid: 4ee39bc25eeaa144891bd0eadcc1bc51,
-    type: 3}
-  m_PrefabInternal: {fileID: 703167789}
 --- !u!1 &475137528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1897,11 +1900,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c64a75c809dcf4ccfa069406b41cd47a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogues:
-  - What do you want?
-  - I don't have time for this!
-  - What??????
+  dialogues: []
   dialoguesIndex: 0
+  quests: 00000000
 --- !u!1 &549845261
 GameObject:
   m_ObjectHideFlags: 0
@@ -2205,11 +2206,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c3e1de189ab44f9b7f9f523943ede5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 597129651}
+  anim: {fileID: 0}
   noHealth: 0
-  totlaHealth: 100
+  totlaHealth: 0
   currentHealth: 0
-  expGranded: 10
+  expGranded: 0
   attackDamage: 0
   attackSpeed: 0
   moveSpeed: 0
@@ -2226,11 +2227,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.42, z: 0}
---- !u!95 &597129651 stripped
-Animator:
-  m_PrefabParentObject: {fileID: 9500000, guid: 4ee39bc25eeaa144891bd0eadcc1bc51,
-    type: 3}
-  m_PrefabInternal: {fileID: 1841367452}
 --- !u!1001 &648418281
 Prefab:
   m_ObjectHideFlags: 0
@@ -2794,7 +2790,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 744256593}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 101.8, y: -17, z: 0}
+  m_LocalPosition: {x: 101.8, y: -30, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1040668681}
@@ -3021,11 +3017,6 @@ CanvasRenderer:
 GameObject:
   m_PrefabParentObject: {fileID: 100068, guid: 4ee39bc25eeaa144891bd0eadcc1bc51, type: 3}
   m_PrefabInternal: {fileID: 481591952}
---- !u!95 &829879226 stripped
-Animator:
-  m_PrefabParentObject: {fileID: 9500000, guid: 4ee39bc25eeaa144891bd0eadcc1bc51,
-    type: 3}
-  m_PrefabInternal: {fileID: 481591952}
 --- !u!114 &829879228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3037,11 +3028,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c3e1de189ab44f9b7f9f523943ede5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 829879226}
+  anim: {fileID: 0}
   noHealth: 0
-  totlaHealth: 100
+  totlaHealth: 0
   currentHealth: 0
-  expGranded: 30
+  expGranded: 0
   attackDamage: 0
   attackSpeed: 0
   moveSpeed: 0
@@ -3320,10 +3311,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 0
-  movementSpeed: 8
+  movementSpeed: 0
   velocity: 0
   enemiesInRange: []
-  AttackDamage: 50
+  AttackDamage: 0
   AttackSpeed: 0
   AttackRange: 0
 --- !u!1 &924092063
@@ -3481,7 +3472,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1040668680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.000015258789, z: 0}
+  m_LocalPosition: {x: 0, y: 54.96422, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 744256594}
@@ -3493,7 +3484,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000013940036}
+  m_AnchoredPosition: {x: 0, y: 54.96422}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1040668682
@@ -3510,14 +3501,14 @@ MonoBehaviour:
   m_Padding:
     m_Left: 2
     m_Right: 2
-    m_Top: 2
+    m_Top: 30
     m_Bottom: 2
   m_ChildAlignment: 0
-  m_Spacing: 20
+  m_Spacing: 60
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
-  m_ChildControlHeight: 0
+  m_ChildControlHeight: 1
 --- !u!114 &1040668683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3917,7 +3908,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1153885042}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 101.8, y: -132, z: 0}
+  m_LocalPosition: {x: 101.8, y: -210, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1040668681}
@@ -4515,11 +4506,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c3e1de189ab44f9b7f9f523943ede5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 1377418393}
+  anim: {fileID: 0}
   noHealth: 0
-  totlaHealth: 100
+  totlaHealth: 0
   currentHealth: 0
-  expGranded: 5
+  expGranded: 0
   attackDamage: 0
   attackSpeed: 0
   moveSpeed: 0
@@ -4536,11 +4527,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.42, z: 0}
---- !u!95 &1377418393 stripped
-Animator:
-  m_PrefabParentObject: {fileID: 9500000, guid: 4ee39bc25eeaa144891bd0eadcc1bc51,
-    type: 3}
-  m_PrefabInternal: {fileID: 15357503}
 --- !u!1 &1378829528
 GameObject:
   m_ObjectHideFlags: 0
@@ -4837,7 +4823,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1491159803}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 101.8, y: -60, z: 0}
+  m_LocalPosition: {x: 101.8, y: -90, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1040668681}
@@ -6398,7 +6384,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1894310109}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -46.536194, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1792822027}
@@ -6626,7 +6612,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1956760329}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 101.8, y: -96, z: 0}
+  m_LocalPosition: {x: 101.8, y: -150, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1040668681}

@@ -31,13 +31,19 @@ public class UIController : MonoBehaviour {
 		// Find the Quest Info UI Data
 
 		questInfo = canvas.Find ("AllQuestsInfo");
-		questInfoContent = questInfo.Find ("/Info/Viewport/Content");
+		questInfoContent = questInfo.Find ("Info/Viewport/Content");
 		questInfoAcceptButton = questInfo.Find ("Info/Buttons/AcceptButton").GetComponent<Button> ();
-		questInfoCancelButton = questInfo.Find ("/Info/Buttons/CancelButton").GetComponent<Button>();
+		questInfoCancelButton = questInfo.Find ("Info/Buttons/CancelButton").GetComponent<Button>();
 
 		questInfoCancelButton.onClick.AddListener (() => {
 			questInfo.gameObject.SetActive (false);
 		});
+
+
+
+		questBook = canvas.Find ("AllQuestActive");
+		questBookContent = canvas.Find ("/Info/Viewport/Content");
+
 	}
 
 

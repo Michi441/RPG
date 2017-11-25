@@ -117,9 +117,10 @@ public class PlayerMovement : MonoBehaviour {
 				NPCController npcController = hit.transform.GetComponent<NPCController> ();
 				if (npcController != null) {
 
-					npcController.ShowDialogue();
-					npcController.dialoguesIndex++;
+					//npcController.ShowDialogue();
+					//npcController.dialoguesIndex++;
 					npcController.OnClick ();
+					Debug.Log (hit.collider.name);
 
 					return;
 
