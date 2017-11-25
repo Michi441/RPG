@@ -131,7 +131,7 @@ public class PlayerMovement : MonoBehaviour {
 			Attack ();
 		}
 		if (Input.GetKey (KeyCode.A)) {
-
+			Debug.Log ("moving a left");
 			SetVelocity (-1);
 
 		} else if (Input.GetKeyUp (KeyCode.A)) {

@@ -28,6 +28,15 @@ public class QuestManager : MonoBehaviour {
 
 	}
 
+	public void ShowActiveQuests(){
+
+		foreach (int i in PlayerData.activeQuests) {
+
+
+
+		}
+	}
+
 	public void ShowQuestInfo (Quest quest)
 	{
 		// Get the UI Controller script and the associated gameObject with questinfo and set it active.
@@ -36,6 +45,7 @@ public class QuestManager : MonoBehaviour {
 		UIController.instance.questInfoAcceptButton.onClick.AddListener (() => {
 			PlayerData.AddQuest (quest.id);
 			UIController.instance.questInfo.gameObject.SetActive (false);
+			print(PlayerData.activeQuests);
 			//ShowActiveQuests();
 		});
 
