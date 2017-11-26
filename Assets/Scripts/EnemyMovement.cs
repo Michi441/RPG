@@ -12,6 +12,8 @@ public class EnemyMovement : MonoBehaviour {
 
 	private GameObject[] player;
 
+	public int MonsterId;
+
 	// Use this for initialization
 	void Start () {
 
@@ -46,6 +48,13 @@ public class EnemyMovement : MonoBehaviour {
 
 	void No_Health(){
 
+		if (!PlayerData.monsterKilled.ContainsKey (MonsterId)) {
+
+			PlayerData.monsterKilled.Add (MonsterId, new PlayerData.MonsterKills ());
+
+		}
+
+		PlayerData.monsterKilled [MonsterId].amount++;
 		noHealth = true;
 		DropLoot ();
 		foreach (GameObject go in player) {

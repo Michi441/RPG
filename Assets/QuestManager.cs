@@ -30,8 +30,9 @@ public class QuestManager : MonoBehaviour {
 
 	public void ShowActiveQuests(){
 
-		foreach (int i in PlayerData.activeQuests) {
+		foreach (PlayerData.ActiveQuest activeQuest in PlayerData.activeQuests.Values) {
 
+			int i = activeQuest.id;
 			Debug.Log ("function called");
 
 			GameObject QuestButtonGo = Instantiate (Resources.Load ("QuestTextButton")) as GameObject;
@@ -73,7 +74,11 @@ public class QuestManager : MonoBehaviour {
 			foreach (Quest.QuestKill qk in quest.task.kills) {
 
 				int currentKills = 0;
-				taskString += "Slay " + qk.amount + " " + MonsterDatabase.Monsters [qk.id] + ".\n";
+				if (PlayerData.activeQuests.ContainsKey (qk.id)) {
+
+					currentKills = PlayerData.monsterKilled [qk.id].amount - PlayerData.activeQuests [quest.id].kills [qk.id].playerCurrent;
+				}
+				taskString += "Slay " + (currentKills) + "/" +  qk.amount + " " + MonsterDatabase.Monsters [qk.id] + ".\n";
 
 
 				Debug.Log ("has tasks!");
