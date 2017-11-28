@@ -7,8 +7,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	private int level = 1;
 	private Text levelText;
-	public float experience { get; private set;}
-	private Transform exprienceBar;
+	public float experience;
+	public Transform exprienceBar;
 
 	[Header("Movement")]
 	public bool canMove;
@@ -163,6 +163,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	public void GetXP(float XP){
 
+		Debug.Log ("get xp called");
 		experience += XP;
 		float XPNeeded = AddXP.ExperienceForNextLevel (level);
 		float previousXP = AddXP.ExperienceForNextLevel (level - 1);

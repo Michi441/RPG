@@ -14,7 +14,7 @@
 	{
 		"talkTo":[],
 		"items":[],
-		"kills":[{"id":0,"amount":10, "playerCurrent":0}, {"id": 55, "amount":3, "playerCurrent":0}]
+		"kills":[{"id":0,"amount":10, "playerCurrent":0}]
 
 
 
